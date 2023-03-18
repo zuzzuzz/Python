@@ -29,6 +29,11 @@ class User:
 # print(duy.display_info())
 
     def enroll(self): 
+
+        if self.is_reward_member:
+            print("user already a member")
+            return False 
+
         self.pets = True # can I put this here? Do I need another def? 
         self.is_reward_member = True
         self.gold_card_points = 200
@@ -38,8 +43,13 @@ class User:
         # self.gold_card_points -= amount #shortend alterantive  
         self.gold_card_points = self.gold_card_points - amount  
 
+        if self.gold_card_points < amount: 
+            "you don't have enough points"
+            return 
+
 duy = User("Duy", "Lyford", "duy.lyford@gmail.com", 36, "Male")
 nissa = User("Nissa", "Wisuttismarn", "ndwapt@gmail.com","female", 42)
+
 
 #test methods 
 # duy.display_info()
@@ -58,8 +68,6 @@ nissa = User("Nissa", "Wisuttismarn", "ndwapt@gmail.com","female", 42)
 # duy.display_info()
 # nissa.display_info()
 
-
-### BONUS will work on 
 
 
 
