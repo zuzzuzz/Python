@@ -40,7 +40,7 @@ class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount(interest_rate = 0.05, balance = 100)
+        self.account = BankAccount(interest_rate = 0.05, balance = 0)
         
     def make_deposit(self, amount):
         self.account.deposit(amount)
@@ -56,8 +56,9 @@ class User:
         return self
     
 duy = User("Duy", "duy.lyford@gmail.com").make_deposit(100).make_deposit(200).make_widthdrawal(300).display_user_balance()
-duy.account.yield_interest().display_account_info()
+duy.account.yield_interest().display_account_info() #why can't you chain the yield_interest? 
 #why does the account default to 395 when there is less than $0???? 
 
-
+niss = User("Nissa", "ndapt@gmail.com").make_deposit(1000).make_widthdrawal(500).display_user_balance()
+niss.account.yield_interest().display_account_info()
 
